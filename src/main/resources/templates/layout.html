@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Página Inicial</title>
+    <meta charset="utf-8">
+    <link rel="icon" type="imagem/png" th:href="@{/img/minilogo.png}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+    <header th:replace="fragments/menu :: menu-navbar"></header>
+    <ul th:replace="fragments/menu :: menu-left-navbar"></ul>
+    <div th:replace="fragments/menu :: menu-logo"></div>
+
+    <section layout:fragment="body"></section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script>
+		$(document).ready(function() {
+			$('.sidenav').sidenav();
+			$('#sidenav-1').sidenav({
+				edge : 'left'
+			});
+			$('#sidenav-2').sidenav({
+				edge : 'right'
+			});
+		});
+		$(document).ready(function() {
+			$('.tooltipped').tooltip();
+		});
+		$(document).ready(function() {
+			$('.modal').modal();
+		});
+	</script>
+</body>
+
+</html>

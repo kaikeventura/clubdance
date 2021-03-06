@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <header th:fragment="menu-navbar">
+        <nav class="pink darken-1">
+            <div class="nav-wrapper"></div>
+        </nav>
+    </header>
+
+    <ul id="sidenav-1" class="sidenav sidenav-fixed" th:fragment="menu-left-navbar">
+
+        <li class="menu-lateral">
+            <a href="#modal-logout" class="tooltipped modal-trigger logged-user" data-position="bottom" data-tooltip="Clique para fazer logout">
+                <i class="material-icons">face</i>
+                    <span class="back-text email" th:utext="${username}"></span>
+            </a>
+        </li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li class="menu-lateral"><a th:href="@{/}"><i
+                class="material-icons">home</i>Home</a>
+        </li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a><i class="material-icons">confirmation_number</i>Ingresso</a>
+        </li>
+        <li>
+            <a th:href="@{/evento/eventos}"><i class="material-icons">chevron_right</i>Eventos</a>
+        </li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a><i class="material-icons">local_bar</i>Bar</a>
+        </li>
+        <li>
+            <a th:href="@{/bar/inicio}"><i class="material-icons">chevron_right</i>Venda</a>
+        </li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a><i class="material-icons">store</i>Estoque</a>
+        </li>
+        <li>
+            <a th:href="@{/estoque/inicio-estoque}"><i class="material-icons">chevron_right</i>Consultar</a>
+        </li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a><i class="material-icons">attach_money</i>Caixa</a>
+        </li>
+        <li>
+            <a th:href="@{/caixa/inicio-caixa}"><i class="material-icons">chevron_right</i>Consultar</a>
+        </li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a><i class="material-icons">content_paste</i>Administração</a>
+        </li>
+        <li>
+            <a th:href="@{/administracao/inicio}"><i class="material-icons">chevron_right</i>Consultar</a>
+        </li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+    </ul>
+
+    <div th:fragment="menu-logo">
+        <img th:src="@{/img/clublogo.png}" class="home-logo">
+    </div>
+
+</body>
+
+</html>

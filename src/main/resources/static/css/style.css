@@ -1,0 +1,195 @@
+/* ----------------Tudo---------------- */
+header, footer {
+	padding-left: 300px;
+}
+
+.text-menu-header {
+	font-size: 30pt;
+}
+
+.menu-lateral {
+	padding-top: 2.5%;
+}
+
+.body-principal {
+	padding-left: 10px;
+	margin-left: 290px;
+}
+
+.style-table {
+	border: 1px solid black;
+	box-shadow: 2px 2px 2px 0.5px white;
+}
+
+body {
+    background: black;
+}
+
+logged-user {
+    text-transform: uppercase;
+}
+/* ------------------------------------ */
+
+
+/* ----------------Pagina inicial---------------- */
+.home-logo {
+    border-radius: 50%;
+    margin-left: 44%;
+    margin-top: 4%;
+    width: 440px;
+}
+/* ---------------------------------------------- */
+
+
+/* ----------------Estilos dos bot�es---------------- */
+#btn-cad-evento {
+	margin-top: 1%;
+	margin-bottom: -1%;
+	margin-right: 1%;
+}
+
+#btn-svr-evento {
+	margin-top: 2.3%;
+	margin-right: 2.4%;
+}
+/* -------------------------------------------------- */
+
+
+/* ----------------Detalhes venda evento---------------- */
+.info-evento-venda {
+	background: white;
+	width: 99% !important;
+	margin-top: 1%;
+	margin-left: 1% !important;	
+}
+
+.form-evento-venda {
+	background: white;
+	width: 49%;
+	margin-top: 1%;
+	margin-left: 1%;
+	padding-left: 1%;
+	margin: 0 auto;
+}
+
+.lista-clientes {
+	background: white;
+	width: 99% !important;
+	margin-top: 1%;
+	margin-left: 1% !important;	
+}
+
+#btn-vender-ingresso {
+	float: right;
+	margin-bottom: 2%;
+}
+/* ----------------------------------------------------- */
+
+
+/* ----------------Estoque---------------- */
+.menu-ferramentas-estoque {
+	background: white;
+	width: 35%;
+	margin-top: 1%;
+	margin-left: 1%;
+	padding-left: 1%;
+	padding: 0.8%;
+}
+/* ---------------------------------------- */
+
+/* ----------------Detalhes fornecedor---------------- */
+.detalhes-fornecedor {
+	background: white;
+	width: 98% !important;
+	margin-left: 1% !important;	
+}
+
+#btn-editar {
+	margin-top: 2.3%;
+	margin-right: 2.4%;
+	float: right;
+}
+
+#btn-excluir {
+	margin-top: 2.3%;
+	margin-right: 2.4%;
+	float: left;
+}
+/* ---------------------------------------------------- */
+
+/* ----------------Lan�ar nota fiscal---------------- */
+.lancar-nota {
+	background: white;
+	width: 30% !important;
+	margin-left: 1% !important;	
+	margin-top: 1% !important;		
+	height: 15%;
+}
+
+.buscar-fornecedor{
+	padding: -4%;
+}
+
+/* --------------------------------------------------- */
+
+/* ----------------Lan�ar Produto Nota Fiscal---------------- */
+.dados-fornecedor {
+	background: white;
+	width: 98% !important;
+	margin-left: 1% !important;
+	margin-top: 0.3% !important;
+}
+/* ---------------------------------------------------------- */
+
+
+/* ----------------Bar---------------- */
+.menu-ferramentas-bar {
+	background: white;
+	width: 35%;
+	margin-top: 1%;
+	margin-left: 1%;
+	padding-left: 1%;
+	padding: 0.8%;
+}
+/* ----------------------------------- */
+
+/*--------Span error--------*/
+.error-span{
+	color: white;
+    background: red;
+    padding: 0.3%;
+    border-radius: 20px;
+    text-align: center;
+}
+/*--------------------------*/
+
+/*--------Span success--------*/
+.success-span{
+	color: white;
+    background: green;
+    padding: 0.6% !important;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 0.5%;
+}
+
+.error-span{
+	color: white;
+    background: red;
+    padding: 0.6% !important;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 0.5%;
+}
+/*----------------------------*/
+
+/* ----------------Caixa---------------- */
+.menu-ferramentas-caixa {
+	background: white;
+	width: 35%;
+	margin-top: 1%;
+	margin-left: 1%;
+	padding-left: 1%;
+	padding: 0.8%;
+}
+/* ------------------------------------- */
