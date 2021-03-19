@@ -1,4 +1,4 @@
-package com.kaikeventura.clubdance.controller;
+package com.kaikeventura.clubdance.domain.home.infra.http;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
