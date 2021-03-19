@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/club_dance
+    username: root
+    password: root
+  driverClassName: com.mysql.jdbc.Driver
+  jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL57Dialect

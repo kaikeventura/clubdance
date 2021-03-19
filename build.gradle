@@ -21,9 +21,12 @@ repositories {
 dependencies {
 	/** Spring **/
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-autoconfigure'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	/** Thymeleaf **/
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
 	/** Lombok **/
@@ -31,7 +34,10 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
 	/** MySQL **/
-//	runtimeOnly 'mysql:mysql-connector-java'
+	runtimeOnly 'mysql:mysql-connector-java'
+
+	/** Flyway **/
+	implementation 'org.flywaydb:flyway-core'
 
 	/** Tests **/
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
