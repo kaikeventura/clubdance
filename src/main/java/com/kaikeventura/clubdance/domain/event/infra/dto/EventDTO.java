@@ -40,30 +40,4 @@ public class EventDTO implements Serializable {
 
     private BigDecimal cabinTicketPrice;
 
-    public EventDTO(
-            String externalId,
-            String name,
-            String place,
-            LocalDate date,
-            LocalTime startTime,
-            LocalTime endTime,
-            Integer capacity,
-            Integer cabinCapacity,
-            BigDecimal normalTicketPrice,
-            BigDecimal vipTicketPrice,
-            BigDecimal cabinTicketPrice
-    ) {
-        this.externalId = externalId;
-        this.name = name;
-        this.place = place;
-        this.date = date;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.capacity = capacity;
-        this.cabinCapacity = cabinCapacity;
-        this.normalTicketPrice = normalTicketPrice;
-        this.vipTicketPrice = vipTicketPrice;
-        this.cabinTicketPrice = cabinTicketPrice;
-    }
-
 }
