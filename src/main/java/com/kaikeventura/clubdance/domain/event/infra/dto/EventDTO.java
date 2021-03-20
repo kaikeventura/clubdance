@@ -1,5 +1,6 @@
 package com.kaikeventura.clubdance.domain.event.infra.dto;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.time.LocalTime;
 
 @NoArgsConstructor
 @Setter
+@Getter
 public class EventDTO implements Serializable {
 
     private String externalId;

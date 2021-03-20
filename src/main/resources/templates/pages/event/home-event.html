@@ -23,51 +23,56 @@
                         <div th:if="${error} != null">
                             <span class="error-span z-depth-1 col s12" th:text="${error}"></span>
                         </div>
-                        <!-- Tabela -->
 
                         <table class="highlight">
                             <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Local</th>
-                                <th>Data</th>
-                                <th>Hr. início</th>
-                                <th>Hr. término</th>
-                                <th>Cap. Normal/VIP</th>
-                                <th>Cap. Camarote</th>
-                                <th>Vender Ingressos</th>
-                                <th>Editar</th>
-                                <th>Excluir</th>
-                            </tr>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Local</th>
+                                    <th>Data</th>
+                                    <th>Hr. início</th>
+                                    <th>Hr. término</th>
+                                    <th>Cap. Normal/VIP</th>
+                                    <th>Cap. Camarote</th>
+                                    <th>Vender Ingressos</th>
+                                    <th>Editar</th>
+                                    <th>Excluir</th>
+                                </tr>
                             </thead>
 
-<!--                            <tbody th:each="e : ${eventos}">-->
-<!--                            <tr>-->
-<!--                                <td th:text="${e.nome}"></td>-->
-<!--                                <td th:text="${e.local}"></td>-->
-<!--                                <td th:text="${#temporals.format(e.data, 'dd/MM/yyyy')}"></td>-->
-<!--                                <td th:text="${e.horaInicio}"></td>-->
-<!--                                <td th:text="${e.horaTermino}"></td>-->
-<!--                                <td th:text="${e.capacidade}"></td>-->
-<!--                                <td th:text="${e.capacidadeCamarote}"></td>-->
-<!--                                <td><a-->
-<!--                                        th:href="@{/evento/vender-ingresso/{id} (id=${e.id})}"-->
-<!--                                        class="btn-floating btn-small waves-effect waves-light green pulse"><i-->
-<!--                                        class="material-icons">loyalty</i></a></td>-->
-<!--                                <td><a th:href="@{/evento/editar-evento/{id} (id=${e.id})}"-->
-<!--                                       class="btn-floating btn-small waves-effect waves-light blue pulse"><i-->
-<!--                                        class="material-icons">edit</i></a></td>-->
-<!--                                <td><a-->
-<!--                                        th:href="@{/evento/excluir-evento/{id} (id=${e.id})}"-->
-<!--                                        class="btn-floating btn-small waves-effect waves-light red pulse"><i-->
-<!--                                        class="material-icons">delete</i></a></td>-->
-<!--                            </tr>-->
-<!--                            </tbody>-->
+                            <tbody th:each="activeEvent : ${activeEventGroup}">
+                                <tr>
+                                    <td th:text="${activeEvent.name}"></td>
+                                    <td th:text="${activeEvent.place}"></td>
+                                    <td th:text="${#temporals.format(activeEvent.date, 'dd/MM/yyyy')}"></td>
+                                    <td th:text="${activeEvent.startTime}"></td>
+                                    <td th:text="${activeEvent.endTime}"></td>
+                                    <td th:text="${activeEvent.capacity}"></td>
+                                    <td th:text="${activeEvent.cabinCapacity}"></td>
+                                    <td>
+                                        <a th:href="@{/evento/vender-ingresso/{id} (id=${activeEvent.externalId})}"
+                                            class="btn-floating btn-small waves-effect waves-light green pulse">
+                                            <i class="material-icons">loyalty</i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{/evento/editar-evento/{id} (id=${activeEvent.externalId})}"
+                                           class="btn-floating btn-small waves-effect waves-light blue pulse">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{/evento/excluir-evento/{id} (id=${activeEvent.externalId})}"
+                                            class="btn-floating btn-small waves-effect waves-light red pulse">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 </body>
