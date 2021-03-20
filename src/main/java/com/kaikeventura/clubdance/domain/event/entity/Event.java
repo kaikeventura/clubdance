@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
@@ -84,31 +83,4 @@ public class Event implements Serializable {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
-
-    public Event(
-            String name,
-            String place,
-            LocalDate date,
-            LocalTime startTime,
-            LocalTime endTime,
-            Integer capacity,
-            Integer cabinCapacity,
-            BigDecimal normalTicketPrice,
-            BigDecimal vipTicketPrice,
-            BigDecimal cabinTicketPrice
-    ) {
-        this.externalId = UUID.randomUUID().toString();
-        this.name = name;
-        this.place = place;
-        this.date = date;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.capacity = capacity;
-        this.cabinCapacity = cabinCapacity;
-        this.normalTicketPrice = normalTicketPrice;
-        this.vipTicketPrice = vipTicketPrice;
-        this.cabinTicketPrice = cabinTicketPrice;
-        this.active = true;
-        this.createdAt = LocalDateTime.now();
-    }
 }
