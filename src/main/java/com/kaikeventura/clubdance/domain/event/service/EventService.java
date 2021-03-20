@@ -16,6 +16,8 @@ public class EventService {
     private final EventRepository eventRepository;
 
     public List<EventDTO> allActiveEvents() {
-        return EVENT_MAPPER.eventGroupToEventDTOGroup(eventRepository.findAll());
+        var activeEventGroup = eventRepository.findAllByActiveTrue();
+
+        return EVENT_MAPPER.eventGroupToEventDTOGroup(activeEventGroup);
     }
 }
