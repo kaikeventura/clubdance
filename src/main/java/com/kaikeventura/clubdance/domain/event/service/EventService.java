@@ -16,8 +16,13 @@ public class EventService {
     private final EventRepository eventRepository;
 
     public List<EventDTO> allActiveEvents() {
-        var activeEventGroup = eventRepository.findAllByActiveTrue();
+        var activeEventGroup = this.eventRepository.findAllByActiveTrue();
 
         return EVENT_MAPPER.eventGroupToEventDTOGroup(activeEventGroup);
+    }
+
+    public void saveNewEvent(final EventDTO eventDTO) {
+        var event = EVENT_MAPPER.eventDTOToEvent(eventDTO);
+        this.eventRepository.save(event);
     }
 }

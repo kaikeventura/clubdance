@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
+
+import static com.kaikeventura.clubdance.domain.event.infra.constant.EventConstant.*;
 
 @Controller
 @RequestMapping("/event")
@@ -23,7 +26,7 @@ public class EventController {
     public ModelAndView homeEvents() {
         return new ModelAndView(
                 "pages/event/event-home",
-                Map.of("activeEventGroup", eventService.allActiveEvents()),
+                Map.of("activeEventGroup", this.eventService.allActiveEvents()),
                 HttpStatus.OK
         );
     }
@@ -38,7 +41,9 @@ public class EventController {
     }
 
     @PostMapping("save")
-    public ModelAndView saveANewEvent(final EventDTO eventDTO) {
+    public ModelAndView saveANewEvent(final EventDTO eventDTO, final RedirectAttributes redirectAttributes) {
+        this.eventService.saveNewEvent(eventDTO);
+        redirectAttributes.addFlashAttribute("success", NEW_SAVED_EVENT.description);
 
         return new ModelAndView("redirect:/event/registration-form", HttpStatus.CREATED);
     }
