@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ public class EventDTO implements Serializable {
 
     private String externalId;
 
+    @NotBlank
     private String name;
 
     private String place;

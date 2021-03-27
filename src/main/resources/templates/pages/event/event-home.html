@@ -62,7 +62,6 @@
                                     <th>Cap. Camarote</th>
                                     <th>Vender Ingressos</th>
                                     <th>Editar</th>
-                                    <th>Excluir</th>
                                 </tr>
                             </thead>
 
@@ -82,15 +81,9 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a th:href="@{/evento/editar-evento/{id} (id=${activeEvent.externalId})}"
+                                        <a th:href="@{/event/load-event-data/{externalId} (externalId=${activeEvent.externalId})}"
                                            class="btn-floating btn-small waves-effect waves-light blue pulse">
                                             <i class="material-icons">edit</i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a th:href="@{/evento/excluir-evento/{id} (id=${activeEvent.externalId})}"
-                                            class="btn-floating btn-small waves-effect waves-light red pulse">
-                                            <i class="material-icons">delete</i>
                                         </a>
                                     </td>
                                 </tr>

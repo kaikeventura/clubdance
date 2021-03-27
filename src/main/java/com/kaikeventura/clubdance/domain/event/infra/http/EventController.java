@@ -6,11 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 import static com.kaikeventura.clubdance.domain.event.infra.constant.EventConstant.*;
@@ -41,10 +43,29 @@ public class EventController {
     }
 
     @PostMapping("save")
-    public ModelAndView saveANewEvent(final EventDTO eventDTO, final RedirectAttributes redirectAttributes) {
+    public ModelAndView saveANewEvent(@Valid final EventDTO eventDTO, final RedirectAttributes redirectAttributes) {
         this.eventService.saveNewEvent(eventDTO);
-        redirectAttributes.addFlashAttribute("success", NEW_SAVED_EVENT.description);
+        redirectAttributes.addFlashAttribute("success", NEW_SAVED_EVENT.message);
 
         return new ModelAndView("redirect:/event/registration-form", HttpStatus.CREATED);
+    }
+
+    @GetMapping("load-event-data/{externalId}")
+    public ModelAndView loadFormEventData(@PathVariable("externalId") final String externalId) {
+        var eventDTO = this.eventService.findEventByExternalId(externalId);
+
+        return new ModelAndView(
+                "pages/event/event-registration-form",
+                Map.of("eventDTO", eventDTO),
+                HttpStatus.OK
+        );
+    }
+
+    @PostMapping("update")
+    public ModelAndView updateEvent(@Valid final EventDTO eventDTO, final RedirectAttributes redirectAttributes) {
+        this.eventService.updateEvent(eventDTO);
+        redirectAttributes.addFlashAttribute("success", UPDATED_EVENT.message);
+
+        return new ModelAndView("redirect:/event/registration-form", HttpStatus.NO_CONTENT);
     }
 }

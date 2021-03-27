@@ -21,4 +21,6 @@ public abstract class EventMapper {
     @Mapping(target = "createdAt", expression = "java(LocalDateTime.now())")
     @Mapping(target = "externalId", expression = "java(UUID.randomUUID().toString())")
     public abstract Event eventDTOToEvent(EventDTO eventDTO);
+
+    public abstract EventDTO eventToEventDTO(Event event);
 }
