@@ -83,4 +83,34 @@ public class Event implements Serializable {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    public Event(
+            String externalId,
+            String name,
+            String place,
+            LocalDate date,
+            LocalTime startTime,
+            LocalTime endTime,
+            Integer capacity,
+            Integer cabinCapacity,
+            BigDecimal normalTicketPrice,
+            BigDecimal vipTicketPrice,
+            BigDecimal cabinTicketPrice,
+            Boolean active,
+            LocalDateTime createdAt
+    ) {
+        this.externalId = externalId;
+        this.name = name;
+        this.place = place;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.capacity = capacity;
+        this.cabinCapacity = cabinCapacity;
+        this.normalTicketPrice = normalTicketPrice;
+        this.vipTicketPrice = vipTicketPrice;
+        this.cabinTicketPrice = cabinTicketPrice;
+        this.active = active;
+        this.createdAt = createdAt;
+    }
 }
