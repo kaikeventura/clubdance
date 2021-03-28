@@ -1,5 +1,6 @@
 package com.kaikeventura.clubdance.domain.event.service;
 
+import com.kaikeventura.clubdance.domain.event.entity.Event;
 import com.kaikeventura.clubdance.domain.event.infra.repository.EventRepository;
 import com.kaikeventura.clubdance.factory.EventFactory;
 import org.junit.jupiter.api.Assertions;
@@ -48,7 +49,7 @@ class EventServiceTest {
 
         this.eventService.saveNewEvent(expectedEventDTO);
 
-        verify(this.eventRepository, times(1)).save(event);
+        verify(this.eventRepository, times(1)).save(any(Event.class));
     }
 
     @Test
