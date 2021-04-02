@@ -47,7 +47,7 @@ public class EventController {
         this.eventService.saveNewEvent(eventDTO);
         redirectAttributes.addFlashAttribute("success", NEW_SAVED_EVENT.message);
 
-        return new ModelAndView("redirect:/event/registration-form", HttpStatus.CREATED);
+        return new ModelAndView("redirect:/event/registration-form", HttpStatus.FOUND);
     }
 
     @GetMapping("load-event-data/{externalId}")
@@ -66,6 +66,6 @@ public class EventController {
         this.eventService.updateEvent(eventDTO);
         redirectAttributes.addFlashAttribute("success", UPDATED_EVENT.message);
 
-        return new ModelAndView("redirect:/event/registration-form", HttpStatus.NO_CONTENT);
+        return new ModelAndView("redirect:/event/registration-form", HttpStatus.FOUND);
     }
 }

@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@NoArgsConstructor
 @Setter
 @Getter
 public class EventDTO implements Serializable {
