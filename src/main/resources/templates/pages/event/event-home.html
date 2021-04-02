@@ -75,7 +75,7 @@
                                     <td th:text="${activeEvent.capacity}"></td>
                                     <td th:text="${activeEvent.cabinCapacity}"></td>
                                     <td>
-                                        <a th:href="@{/evento/vender-ingresso/{id} (id=${activeEvent.externalId})}"
+                                        <a th:href="@{/ticket/{externalId} (externalId=${activeEvent.externalId})}"
                                             class="btn-floating btn-small waves-effect waves-light green pulse">
                                             <i class="material-icons">loyalty</i>
                                         </a>

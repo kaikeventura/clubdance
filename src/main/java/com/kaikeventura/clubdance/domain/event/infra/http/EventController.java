@@ -68,4 +68,8 @@ public class EventController {
 
         return new ModelAndView("redirect:/event/registration-form", HttpStatus.FOUND);
     }
+
+    /**
+     * TODO Implementar rota para desabilitar um evento
+     */
 }
