@@ -1,5 +1,6 @@
 package com.kaikeventura.clubdance.domain.event.entity;
 
+import com.kaikeventura.clubdance.domain.ticket.entity.Ticket;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -84,6 +86,9 @@ public class Event implements Serializable {
 
     private LocalDateTime updatedAt;
 
+    @OneToMany(mappedBy = "event")
+    private Set<Ticket> tickets;
+
     public Event(
             String externalId,
             String name,
@@ -112,5 +117,13 @@ public class Event implements Serializable {
         this.cabinTicketPrice = cabinTicketPrice;
         this.active = active;
         this.createdAt = createdAt;
+    }
+
+    public void removesATicketFromNormalAndNipCapacity() {
+        this.capacity --;
+    }
+
+    public void removesATicketFromCabinCapacity() {
+        this.cabinCapacity --;
     }
 }

@@ -33,12 +33,12 @@ public class EventDTO implements Serializable {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     @NotNull(message = "EVENT_ERROR_005")
-    @FutureOrPresent(message = "EVENT_ERROR_006")
+//    @FutureOrPresent(message = "EVENT_ERROR_006")
     private LocalTime startTime;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     @NotNull(message = "EVENT_ERROR_007")
-    @FutureOrPresent(message = "EVENT_ERROR_008")
+//    @FutureOrPresent(message = "EVENT_ERROR_008")
     private LocalTime endTime;
 
     @Positive(message = "EVENT_ERROR_009")

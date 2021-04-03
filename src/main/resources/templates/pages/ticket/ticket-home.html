@@ -81,131 +81,62 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--                            <div class="col s6 m6">-->
-                            <!--                                <div class="card" style="display: grid;">-->
-                            <!--                                    <div class="card-action center black">-->
-                            <!--                                        <strong><a class="white-text">Vender ingresso</a></strong>-->
-                            <!--                                    </div>-->
-                            <!--                                    <div class="divider"></div>-->
+                            <div class="col s6 m6">
+                                <div class="card" style="display: grid;">
+                                    <div class="card-action center black">
+                                        <strong><a class="white-text">Vender ingresso</a></strong>
+                                    </div>
+                                    <div class="divider"></div>
 
-                            <!--                                    <div class="lista-clientes col s6">-->
-                            <!--                                        <div th:if="${success} != null">-->
-                            <!--										<span class="success-span z-depth-1 col s12"-->
-                            <!--                                              th:text="${success}"></span>-->
-                            <!--                                        </div>-->
-                            <!--                                        <div th:if="${error} != null">-->
-                            <!--                                            <span class="error-span z-depth-1 col s12" th:text="${error}"></span>-->
-                            <!--                                        </div>-->
-                            <!--                                        <div class="row">-->
-                            <!--                                            <form class="col s12"-->
-                            <!--                                                  th:action="@{/evento/vender-ingresso-cliente}"-->
-                            <!--                                                  th:object="${clienteEntity}" method="POST">-->
-                            <!--                                                <div class="row">-->
-                            <!--                                                    <div class="input-field col s6">-->
-                            <!--                                                        <input type="text" class="validate" th:field="*{nome}"-->
-                            <!--                                                               required="required" size="40" maxlength="40"> <label>Nome-->
-                            <!--                                                        completo</label> <span-->
-                            <!--                                                            class="error-span z-depth-1 center-align col s12"-->
-                            <!--                                                            th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name-->
-                            <!--														error</span>-->
-                            <!--                                                    </div>-->
-                            <!--                                                    <div class="input-field col s6">-->
-                            <!--                                                        <input type="text" class="validate" th:field="*{cpf}"-->
-                            <!--                                                               required="required"-->
-                            <!--                                                               onkeypress="$(this).mask('000.000.000-00');"> <label>CPF</label>-->
-                            <!--                                                        <span class="error-span z-depth-1 center-align col s12"-->
-                            <!--                                                              th:if="${#fields.hasErrors('cpf')}" th:errors="*{nome}">Name-->
-                            <!--														error</span>-->
-                            <!--                                                    </div>-->
-                            <!--                                                    <div class="input-field col s6">-->
-                            <!--                                                        <input id="icon_prefix" type="date" class="validate"-->
-                            <!--                                                               th:field="*{dataNascimento}" required="required">-->
-                            <!--                                                        <label for="icon_prefix">Data de nascimento</label>-->
-                            <!--                                                    </div>-->
-                            <!--                                                    <div class="input-field col s6 m6">-->
-                            <!--                                                        <select class="icons" th:field="*{tipoIngresso}"-->
-                            <!--                                                                required="required">-->
-                            <!--                                                            <option th:value="NORMAL" th:text="NORMAL"-->
-                            <!--                                                                    th:data-icon="@{/img/normal.png}">Normal</option>-->
-                            <!--                                                            <option th:value="VIP" th:text="VIP"-->
-                            <!--                                                                    th:data-icon="@{/img/vip.jpg}">Vip</option>-->
-                            <!--                                                            <option th:value="CAMAROTE" th:text="CAMAROTE"-->
-                            <!--                                                                    th:data-icon="@{/img/camarote.jpg}">Camarote</option>-->
-                            <!--                                                        </select> <label>Ingresso</label>-->
-                            <!--                                                    </div>-->
-                            <!--                                                </div>-->
-                            <!--                                                <button id="btn-vender-ingresso" type="submit"-->
-                            <!--                                                        class="waves-effect waves-light btn pink darken-1">-->
-                            <!--                                                    <i class="material-icons right">border_color</i>Vender-->
-                            <!--                                                </button>-->
-                            <!--                                            </form>-->
-                            <!--                                        </div>-->
-                            <!--                                    </div>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
-                            <!--                            <div class="col s6 m6">-->
-                            <!--                                <div class="card" style="display: grid;">-->
-                            <!--                                    <div class="card-action center black">-->
-                            <!--                                        <strong><a class="white-text">Ingressos vendidos</a></strong>-->
-                            <!--                                    </div>-->
-                            <!--                                    <div class="divider"></div>-->
-                            <!--                                    <br>-->
-                            <!--                                    <div class="row">-->
-                            <!--                                        <div class="col s12">-->
-                            <!--                                            <a-->
-                            <!--                                                    class="waves-effect waves-light btn modal-trigger btn-large pink darken-1 col s12"-->
-                            <!--                                                    href="#modal1">Clientes do evento</a>-->
-                            <!--                                        </div>-->
-                            <!--                                    </div>-->
-
-                            <!--                                </div>-->
-                            <!--                            </div>-->
+                                    <div class="lista-clientes col s6">
+                                        <div th:if="${success} != null">
+                                        <span class="success-span z-depth-1 col s12" th:text="${success}"></span>
+                                        </div>
+                                        <div th:if="${error} != null">
+                                            <span class="error-span z-depth-1 col s12" th:text="${error}"></span>
+                                        </div>
+                                        <div class="row">
+                                            <form class="col s12" th:action="@{/ticket}" th:object="${ticketDTO}" method="POST">
+                                                <div class="row">
+                                                    <div class="input-field col s6">
+                                                        <input type="text" class="validate" th:field="*{clientName}"
+                                                               required="required" size="40" maxlength="40"> <label>Nome completo</label> <span
+                                                            class="error-span z-depth-1 center-align col s12"
+                                                            th:if="${#fields.hasErrors('clientName')}" th:errors="*{clientName}">Name
+                                                        error</span>
+                                                    </div>
+                                                    <div class="input-field col s6">
+                                                        <input type="text" class="validate" th:field="*{clientCpf}"
+                                                               required="required"
+                                                               onkeypress="$(this).mask('000.000.000-00');"> <label>CPF</label>
+                                                        <span class="error-span z-depth-1 center-align col s12"
+                                                              th:if="${#fields.hasErrors('clientCpf')}" th:errors="*{clientCpf}">Name
+                                                        error</span>
+                                                    </div>
+                                                    <div class="input-field col s6">
+                                                        <input id="icon_prefix" type="date" class="validate"
+                                                               th:field="*{clientDateOfBirth}" required="required">
+                                                        <label for="icon_prefix">Data de nascimento</label>
+                                                    </div>
+                                                    <div class="input-field col s6 m6">
+                                                        <select class="icons" th:field="*{ticketType}" required="required">
+                                                            <option th:each="ticketType : ${T(com.kaikeventura.clubdance.domain.ticket.infra.dto.TicketType).values()}" th:value="${ticketType}" th:text="${ticketType.description}"></option>
+                                                        </select> <label>Ingresso</label>
+                                                    </div>
+                                                </div>
+                                                <button id="btn-vender-ingresso" type="submit"
+                                                        class="waves-effect waves-light btn pink darken-1">
+                                                    <i class="material-icons right">border_color</i>Vender
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-<!--            <div id="modal1" class="modal">-->
-<!--                <div class="modal-content">-->
-<!--                    <div class="row">-->
-<!--                        <form>-->
-<!--                            <div class="input-field col s10">-->
-<!--                                <i class="material-icons prefix">search</i> <input-->
-<!--                                    placeholder="CPF" id="icon_prefix" type="text" class="validate">-->
-<!--                                <label for="icon_prefix">Buscar cliente</label>-->
-<!--                            </div>-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                    <table class="highlight">-->
-<!--                        <thead>-->
-<!--                        <tr>-->
-<!--                            <th>Nome</th>-->
-<!--                            <th>CPF</th>-->
-<!--                            <th>Data de nascimento</th>-->
-<!--                            <th>Tipo de Ingresso</th>-->
-<!--                            <th>Editar</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-
-<!--                        <tbody th:each="c : ${clientes}">-->
-<!--                        <tr>-->
-<!--                            <td th:text="${c.nome}"></td>-->
-<!--                            <td th:text="${c.cpf}"></td>-->
-<!--                            <td-->
-<!--                                    th:text="${#temporals.format(c.dataNascimento, 'dd/MM/yyyy')}"></td>-->
-<!--                            <td th:text="${c.tipoIngresso}"></td>-->
-<!--                            <td><a-->
-<!--                                    th:href="@{/evento/venda/editar-venda/{id} (id=${c.id})}"-->
-<!--                                    class="btn-floating btn-small waves-effect waves-light blue pulse"><i-->
-<!--                                    class="material-icons">edit</i></a></td>-->
-<!--                        </tr>-->
-<!--                        </tbody>-->
-<!--                    </table>-->
-<!--                </div>-->
-<!--                <div class="modal-footer">-->
-<!--                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     </section>
 
@@ -215,6 +146,8 @@
         var result = data.toISOString().substr(0, 10).split('-').reverse().join('/');
         console.log(result);
         dateVariavel.value = result;
+
+
     </script>
 
 </body>

@@ -39,7 +39,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 
 	/** Flyway **/
-	implementation 'org.flywaydb:flyway-core'
+//	implementation 'org.flywaydb:flyway-core'
 
 	/** mapstruct **/
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
