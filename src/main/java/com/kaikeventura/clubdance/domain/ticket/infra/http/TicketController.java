@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class TicketController {
 
     private static final String REDIRECT_HOME_TICKET = "redirect:/ticket/";
     private static final String ERROR = "error";
+    private static final String SUCCESS = "success";
 
     private final TicketService ticketService;
 
@@ -44,22 +46,27 @@ public class TicketController {
     }
 
     @PostMapping
-    public ModelAndView sellTicket(@Valid TicketDTO ticketDTO) {
+    public ModelAndView sellTicket(@Valid TicketDTO ticketDTO, RedirectAttributes redirectAttributes) {
         var externalIdEvent = ticketService.retrieveExternalIdEvent();
 
         try {
             ticketService.sellTicket(ticketDTO);
         }
         catch (ExistingCpfForThisEventException exception) {
-            return new ModelAndView(REDIRECT_HOME_TICKET + externalIdEvent, Map.of(ERROR, CPF_HAS_A_TICKET.message));
+            redirectAttributes.addFlashAttribute(ERROR, CPF_HAS_A_TICKET.message);
+            return new ModelAndView(REDIRECT_HOME_TICKET + externalIdEvent, HttpStatus.FOUND);
         }
         catch (UnderageClientException exception) {
-            return new ModelAndView(REDIRECT_HOME_TICKET + externalIdEvent, Map.of(ERROR, LESS_AGENT_CLIENT.message));
+            redirectAttributes.addFlashAttribute(ERROR, LESS_AGENT_CLIENT.message);
+            return new ModelAndView(REDIRECT_HOME_TICKET + externalIdEvent, HttpStatus.FOUND);
         }
         catch (TicketSoldOutException exception) {
-            return new ModelAndView(REDIRECT_HOME_TICKET + externalIdEvent, Map.of(ERROR, TICKET_SOLD_OUT.message));
+            redirectAttributes.addFlashAttribute(ERROR, TICKET_SOLD_OUT.message);
+            return new ModelAndView(REDIRECT_HOME_TICKET + externalIdEvent, HttpStatus.FOUND);
         }
 
-        return new ModelAndView(REDIRECT_HOME_TICKET + externalIdEvent);
+        redirectAttributes.addFlashAttribute(SUCCESS, TICKET_SOLD.message);
+
+        return new ModelAndView(REDIRECT_HOME_TICKET + externalIdEvent, HttpStatus.FOUND);
     }
 }
